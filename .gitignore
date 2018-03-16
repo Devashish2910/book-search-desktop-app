@@ -1,2 +1,4 @@
 test/
 .idea/
+book_keeping.db
+__pycache__
