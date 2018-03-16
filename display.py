@@ -7,6 +7,112 @@ window.wm_title("Book-Search by Devashish")
 window.resizable(0,0)
 #window.wm_iconbitmap('./book.png')
 
+def get_selected_row(event):
+    try:
+        global cur_tuple
+        index = lb.curselection()[0]
+        cur_tuple = lb.get(index)
+        entrybox1.delete(0, END)
+        entrybox2.delete(0, END)
+        entrybox3.delete(0, END)
+        entrybox4.delete(0, END)
+        entrybox1.insert(END, cur_tuple[1])
+        entrybox2.insert(END, cur_tuple[2])
+        entrybox3.insert(END, cur_tuple[3])
+        entrybox4.insert(END, cur_tuple[4])
+    except:
+        pass
+
+
+def clear_all():
+    entrybox1.delete(0, END)
+    entrybox2.delete(0, END)
+    entrybox3.delete(0, END)
+    entrybox4.delete(0, END)
+
+
+def findbook():
+    lb.delete(0, END)
+
+    name = name_text.get()
+    author = author_text.get()
+    year = year_text.get()
+    ISBN = ISBN_text.get()
+
+    try:
+        res = op.search(name, author, year, ISBN)
+        for cur in res:
+            lb.insert(END, cur)
+        else:
+            lb.insert(END, "No Data")
+    except Exception as ex:
+        lb.insert(END, ex.args)
+
+    clear_all()
+
+
+def findById(id):
+    data = op.search_by_id(id)
+
+    if len(data) < 0:
+        return "No Data Found"
+    else:
+        return data[0]
+
+
+def findall():
+    lb.delete(0, END)
+
+    try:
+        res = op.view()
+
+        for cur in res:
+            lb.insert(END, cur)
+        else:
+            lb.insert(END, "No Data")
+    except Exception as ex:
+        lb.insert(END, ex.args)
+
+    clear_all()
+
+
+def add():
+    lb.delete(0, END)
+    name = name_text.get()
+    author = author_text.get()
+    year = year_text.get()
+    isbn = ISBN_text.get()
+
+    try:
+        op.insert(name, author, year, isbn)
+    except Exception as ex:
+        lb.insert(END, ex.args)
+
+    lb.insert(END,(name, author, year, isbn) )
+    clear_all()
+
+
+def delete():
+    op.delete(cur_tuple[0])
+    findall()
+    clear_all()
+
+
+def update():
+    name = name_text.get()
+    author = author_text.get()
+    year = year_text.get()
+    isbn = ISBN_text.get()
+    op.update(cur_tuple[0], name, author, year, isbn)
+    data = findById(cur_tuple[0])
+    lb.delete(0, END)
+    lb.insert(END, data)
+    clear_all()
+
+
+def close():
+    pass
+
 
 # Add labels
 lbl1 = Label(window, text='Name: ')
