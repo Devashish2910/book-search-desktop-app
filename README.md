@@ -15,6 +15,7 @@ A simple desktop application for inserting, searching, updating and deleting a b
 
 ------------
 
-<p align="center">
-  <img src ="https://gfycat.com/BiodegradablePositiveElephant" />
-</p>
+![](https://thumbs.gfycat.com/BiodegradablePositiveElephant-size_restricted.gif)
+
+
+_Suggetions and Questions are always welcomes, please e-mail me at devashish2910@fmail.com or create a issue_
