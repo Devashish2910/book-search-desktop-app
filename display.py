@@ -5,7 +5,6 @@ op = DB()
 window = Tk()
 window.wm_title("Book-Search by Devashish")
 window.resizable(0,0)
-#window.wm_iconbitmap('./book.png')
 
 def get_selected_row(event):
     try:
@@ -110,10 +109,6 @@ def update():
     clear_all()
 
 
-def close():
-    pass
-
-
 # Add labels
 lbl1 = Label(window, text='Name: ')
 lbl1.grid(row=0, column=0)
@@ -169,7 +164,7 @@ button3.config(width= 15, height=2)
 button4 = Button(frame1, text="Update Selected", command=update)
 button4.grid(row=6, column=3)
 button4.config(width= 15, height=2)
-button5 = Button(frame1, text="Close", command=close)
+button5 = Button(frame1, text="Close", command=window.destroy)
 button5.grid(row=7, column=3)
 button5.config(width= 15, height=2)
 frame1.grid(row=2, column=3)
