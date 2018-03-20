@@ -1,6 +1,6 @@
 # Book-Search Desktop Application
 A simple desktop application for inserting, searching, updating and deleting a book from the database written in Python.
-(Very handy for library and book store). The front-end is written with **Tkinter** and **SQLite** is used as a embeded database.
+(Very handy for library and bookstore). The front-end is written with **Tkinter** and **SQLite** is used as an embedded database.
 
 ### How to test application!! (No need to install Python)
 
@@ -27,4 +27,4 @@ A simple desktop application for inserting, searching, updating and deleting a b
 ![](https://thumbs.gfycat.com/BiodegradablePositiveElephant-size_restricted.gif)
 
 
-_Suggetions and Questions are always welcomed, please e-mail me at devashish2910@gmail.com or create a issue_
+_Suggetions and Questions are always welcomed, please e-mail me at devashish2910@gmail.com or create an issue_
